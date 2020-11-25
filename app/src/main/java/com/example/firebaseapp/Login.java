@@ -21,7 +21,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class Login extends AppCompatActivity {
+public class
+Login extends AppCompatActivity {
     EditText mEmail,mPassword;
     Button mLoginBtn;
     TextView mCreateBtn,forgotTextLink;
@@ -56,8 +57,8 @@ public class Login extends AppCompatActivity {
                     mPassword.setError("Password is Required");
                     return;
                 }
-                if (password.length() < 6) {
-                    mPassword.setError("Password must be greater than 6 characters");
+                if (password.length() < 5) {
+                    mPassword.setError("Your Password should have at least minimum of 5 Characters");
                     return;
                 }
                 //progressBar.setVisibility(View.VISIBLE);
@@ -67,7 +68,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Successfully Logged-in", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             Toast.makeText(Login.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

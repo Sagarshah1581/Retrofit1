@@ -54,10 +54,7 @@ public class SignUp extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         //progressBar.findViewById(R.id.progressBar);
 
-        if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
+
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +71,8 @@ public class SignUp extends AppCompatActivity {
                     mPassword.setError("Password is Required");
                     return;
                 }
-                if(password.length() <6){
-                    mPassword.setError("Password must be greater than 6 characters");
+                if(password.length() <5){
+                    mPassword.setError("Your Password should have at least minimum of 5 Characters");
                     return;
                 }
 
@@ -90,7 +87,9 @@ public class SignUp extends AppCompatActivity {
                             Map<String,Object> user = new HashMap<>();
                             user.put("fName", fullname);
                             user.put("email", email);
-                            user.put("phoneNumber", phone);
+                            user.put("password", password);
+                            user.put("phonenumber", phone);
+
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
