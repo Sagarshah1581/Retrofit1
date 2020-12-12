@@ -12,11 +12,10 @@ import retrofit2.http.POST;
 public interface Node {
 
     @POST("/register/")
-    @FormUrlEncoded
-    Observable<String> registerUser(@Field("fname") String fname,
+
+    Observable<String> registerUser(@Field("FName") String fname,
                                     @Field("phone") String phone,
-                                    @Field("email") String email,
-                                    @Field("password") String password);
+
 
 
 }
