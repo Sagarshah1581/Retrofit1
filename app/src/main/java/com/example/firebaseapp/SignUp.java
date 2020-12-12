@@ -85,7 +85,23 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    private void register(String fname, String email,String phone, String password) {
 
-
+//        Log.v("sannith","inouts"+emailidpass+passwordpass);
+        compositeDisposable.add(loginapi.registerUser(fname,email,phone,password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        Log.v("api text","rathan"+s);
+                        if (s.contains("success")){
+                            Intent intent = new Intent(SignUp.this, Login.class);
+                            startActivity(intent);}
+                        else
+                            Toast.makeText(SignUp.this,"User Already exists",Toast.LENGTH_LONG).show();
+                    }
+                }));
+    }
 
 }
