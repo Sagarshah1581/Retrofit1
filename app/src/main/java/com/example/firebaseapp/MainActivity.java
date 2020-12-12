@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static final int GALLERY_INTENT_CODE = 1023;
-    CardView products,Feedback;
+    CardView products,Feedback,ViewProducts;
     Button btn_logout;
 
 
@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
        products =(CardView)findViewById(R.id.Products);
        Feedback =  (CardView)findViewById(R.id.feedback);
         btn_logout=(Button)findViewById(R.id.btn_logout);
+
+
+
+
+
 
         products.setOnClickListener(new View.OnClickListener() {
             @Override
